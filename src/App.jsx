@@ -8,11 +8,12 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Form />
-      <PackingList />
-      <Stats />
-      <Footer />
+      <div className='app'>
+          <Header />
+          <Form />
+          <PackingList />
+          <Stats />
+      </div>
     </>
   )
 }
@@ -20,12 +21,38 @@ function App() {
 export default App
 
 
-function Header () {}
+function Header () {
+  
+  return (
+    <header>
+      <h1>📋 CHECK LIST ✔️</h1>
+    </header>
+  )
+  
+}
 
-function Form () {}
+function Form () {
+  return (
+    <div className='add-form'>
+      <h3> Anything you need please add more 📝</h3>
+    </div>
+  )
+}
 
-function PackingList () {}
+function List () {
+  return (
+    <div className='list'>
+      <ul>
+        List
+      </ul>
+    </div>
+  )
+}
 
-function Stats () {}
-
-function Footer () {}
+function Stats () {
+  return (
+    <footer className='stats'>
+      <h3> Anything you need please add more 📝</h3>
+    </footer>
+  )
+}
