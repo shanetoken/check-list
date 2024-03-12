@@ -1,6 +1,23 @@
+import { useState } from 'react'
 import './App.css'
 
+const initialItems = [
+  {id: 1, description: "Passports", quatity: 2, packed: false},
+  {id: 2, description: "Socks", quatity: 3, packed: true},
+  {id: 3, description: "Pants", quatity: 3, packed: false}
+]
+
 function App() {
+
+  const [isChecked, setIsChecked] = useState()
+
+  const handleItemChecked = (id) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  };
   
   return (
     <>
@@ -55,9 +72,17 @@ function Form () {
 function List () {
   return (
     <div className='list'>
-      <ul>
-        List
-      </ul>
+        {initialItems.map((item) => (
+          <li key={item.id}>
+            <input
+              type='checkbox'
+              checked={item.packed}
+              onChange={() => handleItemChecked(item.id)}
+            />
+            <span style={item.packed ? {textDecoration: 'line-through'} : {}}>{item.quatity} {item.description}</span> 
+            <span id="btn-remove">🗙</span>
+          </li>
+        ))}
     </div>
   )
 }
