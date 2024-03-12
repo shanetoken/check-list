@@ -61,20 +61,17 @@ function Form () {
 }
 
 function List({ initialItems }) {
-  // Initialize the state with the given initialItems
   const [items, setItems] = useState(initialItems);
 
-  // Handle item checked change
   const handleItemChecked = (id) => {
     setItems((prevItems) =>
       prevItems.map((item) => ({
         ...item,
-        packed: item.id === id ? !item.packed : item.packed
+        packed: item.id === id ? !item.packed : item.packed,
       }))
     );
   };
 
-  // Handle removing item
   const handleRemoveClick = (id) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
@@ -89,9 +86,11 @@ function List({ initialItems }) {
               checked={item.packed}
               onChange={() => handleItemChecked(item.id)}
             />
-            <span style={{ textDecoration: item.packed ? "line-through" : "" }}>{item.quantity} {item.description}</span> 
-            <button onClick={() => handleRemoveClick(item.id)}>❖</button>
+            <span style={{ textDecoration: item.packed ? 'line-through' : '' }}>
+              {item.quantity} {item.description}
+            </span>
           </label>
+          <button onClick={() => handleRemoveClick(item.id)}>Remove</button>
         </li>
       ))}
     </ul>
