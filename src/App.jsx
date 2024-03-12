@@ -1,6 +1,3 @@
-
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -10,7 +7,7 @@ function App() {
       <div className='app'>
           <Header />
           <Form />
-          <PackingList />
+          <List />
           <Stats />
       </div>
     </>
@@ -24,7 +21,7 @@ function Header () {
   
   return (
     <header>
-      <h1>📋 CHECK LIST ✔️</h1>
+      <h1>📋 CHECK LIST</h1>
     </header>
   )
   
@@ -32,9 +29,26 @@ function Header () {
 
 function Form () {
   return (
-    <div className='add-form'>
-      <h3> Anything you need please add more 📝</h3>
-    </div>
+    <>
+
+      <div className='form-title'>
+        <h3>Add more tasks 📝</h3>
+      </div>
+
+      <div className='form-input'>
+        <select id='select'>
+        {Array.from({ length: 10 }, (_, index) => index + 1).map((value) => (
+          <option key={value} value={value}>
+            {value}
+          </option>
+        ))}
+        </select>
+        <input id='input-text' type='text' placeholder="Item..."></input>
+        <button id='btn-form' type='submit'>ADD</button>
+      </div>
+      
+    </>
+    
   )
 }
 
@@ -51,7 +65,7 @@ function List () {
 function Stats () {
   return (
     <footer className='stats'>
-      <h3> Anything you need please add more 📝</h3>
+      <h3> Total your List </h3>
     </footer>
   )
 }

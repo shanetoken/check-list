@@ -1,8 +1,12 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .logo {
@@ -39,4 +43,39 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.header {
+  margin-top: 0;
+
+}
+
+
+#select {
+  border-radius: 5px;
+  border: 1px silver solid;
+  background-color: transparent;
+}
+
+#input-text {
+  border-radius: 5px;
+  border: silver 1px solid;
+}
+
+#btn-form {
+  padding: 2px;
+  border: silver 1px solid;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: auto;
+  font-size: small;
+  height: 2rem;
+  align-items: center;
+  background-color: antiquewhite;
 }
