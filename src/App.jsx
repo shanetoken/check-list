@@ -9,15 +9,6 @@ const initialItems = [
 
 function App() {
 
-  const [isChecked, setIsChecked] = useState()
-
-  const handleItemChecked = (id) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, packed: !item.packed } : item
-      )
-    );
-  };
   
   return (
     <>
@@ -69,22 +60,42 @@ function Form () {
   )
 }
 
-function List () {
+function List({ initialItems }) {
+  // Initialize the state with the given initialItems
+  const [items, setItems] = useState(initialItems);
+
+  // Handle item checked change
+  const handleItemChecked = (id) => {
+    setItems((prevItems) =>
+      prevItems.map((item) => ({
+        ...item,
+        packed: item.id === id && !item.packed
+      }))
+    );
+  };
+
+  // Handle removing item
+  const handleRemoveClick = (id) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
   return (
-    <div className='list'>
-        {initialItems.map((item) => (
-          <li key={item.id}>
+    <ul className="list">
+      {items.map((item) => (
+        <li key={item.id}>
+          <label>
             <input
-              type='checkbox'
+              type="checkbox"
               checked={item.packed}
-              onChange={() => handleItemChecked(item.id)}
+              onClick={() => handleItemChecked(item.id)}
             />
-            <span style={item.packed ? {textDecoration: 'line-through'} : {}}>{item.quatity} {item.description}</span> 
-            <span id="btn-remove">🗙</span>
-          </li>
-        ))}
-    </div>
-  )
+            <span style={{ textDecoration: item.packed ? "line-through" : "" }}>{item.quantity} {item.description}</span> 
+            <button onClick={() => handleRemoveClick(item.id)}>❖</button>
+          </label>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 function Stats () {
