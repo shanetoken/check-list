@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: aquamarine;
 }
 
 .logo {
@@ -50,16 +51,35 @@
 
 }
 
+.form-title {
+  padding-bottom: 0;
+  padding-top: 0.5rem;
+  font-size: small;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 9px;
+  height: 2rem;
+  align-items: center;
+  background-color: antiquewhite;
+  padding: auto;
+}
 
 #select {
   border-radius: 5px;
   border: 1px silver solid;
   background-color: transparent;
+
 }
 
 #input-text {
   border-radius: 5px;
   border: silver 1px solid;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 #btn-form {
@@ -67,15 +87,4 @@
   border: silver 1px solid;
   border-radius: 5px;
   background-color: transparent;
-}
-
-.form-input {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: auto;
-  font-size: small;
-  height: 2rem;
-  align-items: center;
-  background-color: antiquewhite;
 }

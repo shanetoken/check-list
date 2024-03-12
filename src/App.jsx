@@ -44,9 +44,9 @@ function Form () {
         ))}
         </select>
         <input id='input-text' type='text' placeholder="Item..."></input>
-        <button id='btn-form' type='submit'>ADD</button>
+        <button id='btn-form' type='submit'> ➕ </button>
       </div>
-      
+
     </>
     
   )
