@@ -69,7 +69,7 @@ function List({ initialItems }) {
     setItems((prevItems) =>
       prevItems.map((item) => ({
         ...item,
-        packed: item.id === id && !item.packed
+        packed: item.id === id ? !item.packed : item.packed
       }))
     );
   };
@@ -87,7 +87,7 @@ function List({ initialItems }) {
             <input
               type="checkbox"
               checked={item.packed}
-              onClick={() => handleItemChecked(item.id)}
+              onChange={() => handleItemChecked(item.id)}
             />
             <span style={{ textDecoration: item.packed ? "line-through" : "" }}>{item.quantity} {item.description}</span> 
             <button onClick={() => handleRemoveClick(item.id)}>❖</button>
